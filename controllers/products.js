@@ -54,7 +54,7 @@ products = {
         },
         tamplate : function(){
           products = (!idCategory) ? products : products.filter((a)=>a.IDCategory = idCategory)
-          products = (!earch) ? products : products.filter((a)=>a.Product == search)
+          products = (!search) ? products : products.filter((a)=>a.Product == search)
           products = (!sort) ? products : products.sort((a,b)=>a.Product - b.Product)
           return products
             .maps((product)=>`<div class="card">
