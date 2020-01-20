@@ -5,6 +5,7 @@ models = {
       schema: {
         IDHierarchy: { type: "guid" },
         Hierarchy: { type: "text" },
+        IDType_Hierarchy: { type: int, notNull: true },
         Active: { type: "boolean" }
       }
     },
@@ -92,15 +93,50 @@ models = {
         Active: { type: "boolean" }
       }
     },
-    clients_accounts : { },
-    clients_contacts : { },
-    clients_documents : { },
-    clients_address : { },
-    orders: { },
-    orders_status: { },
-    orders_products: { },
-    orders_deliveries: { },
+    clients_accounts : {
+      table: "clients_accounts",
+      fieldKey: "IDClient_Account",
+      schema: {
+        IDClient_Account: { type: "guid", notNull: true },
+        IDClient: { type: "guid", notNull: true },
+        Account: { type: "text", notNull: true },
+        IDBank: { type: "int", length: 0.255, notNull: true },
+        IBAN: { type: "text", length: 0.25 },
+        Active: { type: "boolean" }
+      }
+    },
+    clients_address : {
+      table: "clients_address",
+      fieldKey: "IDClient_Address",
+      schema: {
+        IDClient_Address: { type: "guid", notNull: true },
+        IDClient: { type: "guid", notNull: true },
+        Address: { type: "text", notNull: true },
+        Postal_Code: { type: "text", notNull: true },
+        Complement: { type: "text" },
+        Active: { type: "boolean" }
+      }     
+    },
+    clients_contacts : {
+      table: "clients_contacs",
+      fieldKey: "IDClient_Contact",
+      schema: {
+        IDClient_Contact: { type: "guid", notNull: true },
+        IDClient: { type: "guid", notNull: true },
+        Contact: { type: "text", notNull: true },
+        Contact_Name: { type: "text", notNull: true },
+        IDType_Contact: { type: "int", notNull: true },
+        Active: { type: "boolean" }
+      }
+    },
+    clients_documents : {},
+    orders: {},
+    orders_status: {},
+    orders_products: {},
+    orders_deliveries: {},
     types_clients: {},
+    types_clients_contacs: {},
+    types_clients_documents: {},
     types_channels: {},
     types_hierarchies: {}
-  }
+  } // TODO
