@@ -4,29 +4,30 @@ users = {
     getOne: function(req, res) {
       (!res)
         ? db.find(model, req.params.IDUser, {target: this.getOne})
-        : console.log(res)
+        : response(res)
     },
 
     getMany: function(req, res) {
       (!res)
         ? db.get(model, '*', {target: this.getMany})
-        : console.log(res)
+        : response(res)
     },
 
     save: function(req, res) {
       (!res)
         ? db.save(model, {target: this.save})
-        : response('data saved!')
+        : response(res)
     },
 
     delete: function (req, res) {
       (!res)
         ? db.delete(model, res.params.IDUser, {target: this.delete})
-        : response('data deleted!')
+        : response(res)
     },
+
     frontEnd : {
       user : {
-        routeView : '/user/:IDUser',
+        routeView : '/users/:IDUser',
         includes : {},
         bindings : {
           isLoading : false,
