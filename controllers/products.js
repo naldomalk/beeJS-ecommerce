@@ -3,7 +3,7 @@ products = {
 
     getOne: function(req, res) {
       (!res)
-        ? db.find(model, req.params.idProduct, {target: this.getOne})
+        ? db.find(model, req.params.IDProduct, {target: this.getOne})
         : console.log(res)
     },
 
@@ -21,12 +21,12 @@ products = {
 
     delete: function (req, res) {
       (!res)
-        ? db.delete(model, res.params.idShift, {target: this.delete})
+        ? db.delete(model, res.params.IDProduct, {target: this.delete})
         : response('data deleted!')
     },
     frontEnd : {
       product : {
-        routeView : '/product/:id',
+        routeView : '/product/:IDProduct',
         includes : {},
         bindings : {
           isLoading : false,
@@ -37,7 +37,7 @@ products = {
           return ''
              + this.includes.header
              + $include('uiTemplate.header')
-             + (()=>`<section>teste</section>`)
+             + (()=>`<section></section>`) // TODO
              + $include('uiTemplate.footer')
         }
       },
@@ -66,7 +66,7 @@ products = {
       },
       uiSelectProduct: {
         bindings : {
-          options : {0: "", 1: "product 1", 2: "product 2", 3: "product 3", 4: "product 4"}
+          options : {0: "", 1: "product 1", 2: "product 2", 3: "product 3", 4: "product 4"}  // TODO
         },
         methods : {
         },
