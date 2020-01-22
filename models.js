@@ -129,10 +129,49 @@ models = {
         Active: { type: "boolean" }
       }
     },
-    clients_documents : {},
-    orders: {},
-    orders_status: {},
-    orders_products: {},
+    clients_documents : {
+      table: "clients_documents",
+      fieldKey: "IDClient_Document",
+      schema: {
+        IDClient_Document: { type: "guid", notNull: true },
+        IDClient: { type: "guid", notNull: true },
+        Document: { type: "text", notNull: true },
+        IDType_Document: { type: "int", notNull: true },
+        Active: { type: "boolean" }
+      }
+    },
+    orders: {
+      table: "orders",
+      fieldKey: "IDOrder",
+      schema: {
+        IDOrder: { type: "guid", notNull: true },
+        IDChannel: { type: "guid", notNull: true },
+        IDClient: { type: "guid", notNull: true },
+        DateTime: { type: "int", notNull: true },
+        Order: { type: "text", notNull: true },
+        Active: { type: "boolean" }
+      }
+    },
+    orders_status: {
+      table: "orders_status",
+      fieldKey: null,
+      schema: {
+        IDOrder: { type: "guid", notNull: true },
+        Order_Status: { type: "tezt", notNull: true },
+        IDUser: { type: "guid", notNull: true },
+        DateTime: { type: "int", notNull: true }
+      }
+    },
+    orders_products: {
+      table: "orders_products",
+      fieldKey: "IDOrder_Product",
+      schema: {
+        IDOrder_Product: { type: "guid", notNull: true },
+        IDOrder: { type: "guid", notNull: true },
+        IDProduct: { type: "guid", notNull: true },
+        Qty: { type: "float", notNull: true }
+      } 
+    },
     orders_deliveries: {},
     types_clients: {},
     types_clients_contacs: {},
