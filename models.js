@@ -172,7 +172,29 @@ models = {
         Qty: { type: "float", notNull: true }
       } 
     },
-    orders_deliveries: {},
+    orders_deliveries: {
+      table: "orders_deliveries",
+      fieldKey: "IDOrder_Delivery",
+      schema: {
+        IDOrder_Delivery: { type: "guid", notNull: true },
+        IDCarrier: { type: "guid", notNull: true },
+        Address: { type: "text", length:255, notNull: true },
+        Postal_Code: { type: "int", length:8, notNull: true },
+        Number: { type: "text", length:15 },
+        Reference: { type: "text" }
+      } 
+    },
+    carriers : {
+      table: "carriers",
+      fieldKey: "IDCarrier",
+      schema: {
+        IDCarrier: { type: "guid", notNull: true },
+        Carrier: { type: "text", notNull: true },
+        Website: { type: "int", length:45 },
+        Tracker_Link: { type: "text", length:255 },
+        Active: { type: "boolean" }
+      } 
+    },
     types_clients: {},
     types_clients_contacs: {},
     types_clients_documents: {},
