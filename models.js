@@ -195,9 +195,24 @@ models = {
         Active: { type: "boolean" }
       } 
     },
-    types_clients: {},
+    types_clients: {
+      table: "types_clients",
+      fieldKey: "IDType_Client",
+      schema: {
+        IDType_Client: { type: "guid", notNull: true },
+        Type_Client: { type: "text", notNull: true },
+      } 
+    },
     types_clients_contacs: {},
     types_clients_documents: {},
     types_channels: {},
-    types_hierarchies: {}
+    types_hierarchies: {
+      table: "types_hierarchies",
+      fieldKey: "IDType_Hierarchy",
+      schema: {
+        IDType_Hierarchy: { type: "guid", notNull: true },
+        Type_Hierarchy: { type: "text", notNull: true },
+        Type_Hierarchy_Report: { type: "text", length:15, notNull: false },
+      } 
+    }
   } // TODO
